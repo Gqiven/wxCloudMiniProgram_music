@@ -1,1 +1,5 @@
-# wxCloudMiniProgram_music
+#小程序-云开发
+
+#通过InnerAudioContext实例实现音频播放，利用该实例方法实现列表内音频的循环播放
+<br>
+#利用云开发，实现云数据库的读取、增加、更新数据操作
