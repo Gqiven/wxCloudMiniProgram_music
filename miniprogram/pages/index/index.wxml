@@ -1,0 +1,127 @@
+<!--index.wxml-->
+<view class="container {{ready ? '' : 'hide' }}">
+  <!-- 授权弹窗 -->
+  <!-- <view>
+    <div class="modal">
+      <div class="modal-container">
+        <h1>微信授权</h1>
+        <div>
+          <button open-type="getUserInfo">同意</button>
+        </div>
+      </div>
+    </div>
+  </view> -->
+  
+  <swiper
+    indicator-dots="{{indicatorDots}}"
+    autoplay="{{autoplay}}"
+    interval="{{interval}}"
+    duration="{{duration}}"
+    indicator-active-color="#ffffff"
+  >
+    <block wx:for="{{banner}}" wx:key="index">
+      <swiper-item>
+        <navigator
+          url="../../pages/gallery/gallery"
+          hover-class="navigator-hover"
+          hover-class="other-navigator-hover"
+        >
+          <image src="{{item.img}}" mode="widthFix" class="slide-image"/>
+        </navigator>
+      </swiper-item>
+    </block>
+  </swiper>
+  <navigator
+    url="../../pages/msg/msg"
+    hover-class="navigator-hover"
+    hover-class="other-navigator-hover"
+    class="warning-box"
+  >
+    <span class="iconfont icon-gantanhao1"></span>使用说明
+  </navigator>
+  <div class="share-box">
+    <p class="title">
+      <span class="iconfont icon-diantaizhibo"></span>点歌小站
+    </p>
+    <div class="box-banner user-songs">
+      <navigator
+        url="../../pages/formPage/formPage?nickname={{nickname}}"
+        hover-class="navigator-hover"
+        hover-class="other-navigator-hover"
+        class="video"
+      >
+        <span class="iconfont icon-jushou"></span>我来点歌
+      </navigator>
+      <navigator
+        url="../../pages/subscribePage/subscribePage"
+        hover-class="navigator-hover"
+        hover-class="other-navigator-hover"
+        class="video"
+      >
+        <span class="iconfont icon-liebiao"></span>今日名单
+      </navigator>
+    </div>
+  </div>
+  <div class="share-box">
+    <p class="title">
+      <span class="iconfont icon-icon-"></span>今日推荐
+    </p>
+  </div>
+
+  <div class="music-list-box">
+    <div class="list-title hairline">列表</div>
+    <div class="music-list">
+     <div wx:for="{{listData}}" wx:key="index" class="item hairline">
+        <div class="item-info" bindtouchstart="playmusic" data-index="{{index}}">
+          <span wx:if="{{playing==true && index == activeIndex}}" class="iconfont icon-laba item-index"></span>
+          <span wx:elif="{{index < 8}}" class="item-index">0{{index + 1}}</span>
+          <span wx:else class="item-index">{{index + 1}}</span>
+          <div>
+            <p class="music-name">{{item.name}}</p>
+            <p>{{item.author}} - {{item.album}}</p>
+          </div>
+        </div>
+        <div class="item-more">
+          <navigator
+              url="../../pages/detail/detail?type=video&id={{item.id}}&nickname={{nickname}}"
+              hover-class="navigator-hover"
+              hover-class="other-navigator-hover"
+              class="video"
+            >
+            <span class="iconfont icon-shipin"></span>
+          </navigator>
+          <navigator
+              url="../../pages/detail/detail?type=audio&id={{item.id}}&nickname={{nickname}}"
+              hover-class="navigator-hover"
+              hover-class="other-navigator-hover"
+              class="msg"
+            >
+            <span class="iconfont icon-gengduo1"></span>
+          </navigator>
+        </div>
+     </div>
+    </div>
+  </div>
+
+  <!-- <audio
+    wx:if="poster"
+    poster="{{poster}}"
+    name="{{name}}"
+    author="{{author}}"
+    src="{{src}}"
+    id="myAudio"
+    controls="{{controls}}"
+    bindtimeupdate="timeUpdate"
+    loop
+  ></audio> -->
+  <div class="playing-box" wx:if="poster">
+    <image src="{{poster}}" mode="widthFix" alt=""/>
+    <div>
+      <span class="music-name">{{name}}</span>
+      <span>{{author}}</span>
+    </div>
+    <span wx:if="{{playing==false}}" class="iconfont icon-bofang" bindtouchstart="playmusic"></span>
+    <span wx:elif="{{playing==true}}" class="iconfont icon-zanting" bindtouchstart="pausemusic"></span>
+  </div>
+  <!-- <div class="author"><span class="iconfont icon-dongwutubiao-xianxing-niu"></span>by xqw</div> -->
+</view>

@@ -1,0 +1,12 @@
+<!--pages/chooseLib/chooseLib.wxml-->
+<view class="container">
+  <p class="title">这是个简陋的小程序，咳咳咳，那个，以下是可能出现的问题：</p>
+  <div class="list-item">
+    没有退出小程序，但是手动息屏，再次打开手机，发现歌曲是播放状态，但是没有声音。。坑。。这个暂时没有找到方法，只能手动点击让它再唱。
+  </div>
+  <div class="list-item">
+    小程序里的歌没有一个能正常播放的，那个，播放链接过期了。。等等人工更新哈。（即使这样也请不嫌弃，不抛弃，会尽快更新链接！）
+  </div>
+  <!-- <p class="footer-msg">啥问题都可以去留言区说。欢迎欢迎！<span class="iconfont icon-laugh"></span></p> -->
+</view>
+

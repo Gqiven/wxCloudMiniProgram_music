@@ -1,0 +1,30 @@
+.container {
+  font-size: 14px;
+  padding: 20px 10px;
+}
+.title {
+  margin-bottom: 20px;
+}
+p {
+  width: 100%;
+}
+.list-item {
+  padding-left: 15px;
+  position: relative;
+}
+.list-item:before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  border-radius: 4px;
+  position: absolute;
+  left: 0;
+  top: 10px;
+  background-color: #7b7b7b;
+}
+.footer-msg {
+  padding-top: 20px;
+}
+.iconfont {
+  font-size: 20px;
+}

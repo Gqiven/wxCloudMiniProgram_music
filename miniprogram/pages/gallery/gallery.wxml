@@ -1,0 +1,6 @@
+<!--pages/databaseGuide/databaseGuide.wxml-->
+<view class="container">
+  <view wx:for="{{images}}" wx:key="{{index}}">
+    <image src="{{item}}"></image>
+  </view>
+</view>

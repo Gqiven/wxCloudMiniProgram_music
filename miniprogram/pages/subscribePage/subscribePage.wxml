@@ -1,0 +1,56 @@
+<!--pages/addFunction/addFunction.wxml-->
+<view class="container">
+  <div class="words-box">
+    <div>
+      <div>“{{name}}”</div>
+      <div>{{words}}</div>
+    </div>
+  </div>
+  <div class="share-box">
+    <p class="title">今日点歌单</p>
+  </div>
+  <div class="music-list-box">
+    <div class="list-title hairline">列表</div>
+    <div class="music-list">
+     <div wx:for="{{listData}}" wx:key="index" class="item hairline">
+        <div class="item-info" bindtouchstart="playmusic" data-index="{{index}}">
+          <span wx:if="{{playing==true && index == activeIndex}}" class="iconfont icon-laba item-index"></span>
+          <span wx:elif="{{index < 8}}" class="item-index">0{{index + 1}}</span>
+          <span wx:else class="item-index">{{index + 1}}</span>
+          <div>
+            <p class="music-name">{{item.name}}</p>
+            <p>{{item.author}} - {{item.album}}</p>
+          </div>
+        </div>
+        <!-- <div class="item-more">
+          <navigator
+              url="../../pages/detail/detail?type=video&id={{item.id}}&nickname={{nickname}}"
+              hover-class="navigator-hover"
+              hover-class="other-navigator-hover"
+              class="video"
+            >
+            <span class="iconfont icon-shipin"></span>
+          </navigator>
+          <navigator
+              url="../../pages/detail/detail?type=audio&id={{item.id}}&nickname={{nickname}}"
+              hover-class="navigator-hover"
+              hover-class="other-navigator-hover"
+              class="msg"
+            >
+            <span class="iconfont icon-gengduo1"></span>
+          </navigator>
+        </div> -->
+     </div>
+    </div>
+  </div>
+
+  <div class="playing-box" wx:if="imgLoaded">
+    <image src="{{poster}}" mode="widthFix" bindload="imgReady" alt=""/>
+    <div>
+      <span class="music-name">{{name}}</span>
+      <span>{{author}}</span>
+    </div>
+    <span wx:if="{{playing==false}}" class="iconfont icon-bofang" bindtouchstart="playmusic"></span>
+    <span wx:elif="{{playing==true}}" class="iconfont icon-zanting" bindtouchstart="pausemusic"></span>
+  </div>
+</view>

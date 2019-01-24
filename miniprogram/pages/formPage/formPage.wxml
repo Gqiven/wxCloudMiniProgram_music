@@ -1,0 +1,37 @@
+<view>
+  <p class="title">填写点歌信息</p>
+  <div class="form-fill">
+    <div class="input-box">
+      <label for="">歌曲名称</label>
+      <input type="text" placeholder="填写歌曲名称" data-name="song"
+        bindinput="getValue"
+        placeholder-style="color: #C1C1C1;" />
+    </div>
+    <div class="input-box">
+      <label for="">歌曲作者</label>
+      <input type="text" placeholder="填写作者（非必填）" data-name="author"
+        bindinput="getValue"
+        placeholder-style="color: #C1C1C1;" />
+    </div>
+    <div class="input-box">
+      <label for="">点歌人</label>
+      <input type="text" placeholder="你的称呼（非必填）" data-name="username"
+        bindinput="getValue"
+        placeholder-style="color: #C1C1C1;" />
+    </div>
+    <div>
+      <label for="">留言</label>
+      <textarea name="" id="" rows="5" placeholder="填写留言（非必填）"
+        data-name="words" bindinput="getValue" placeholder-style="color: #C1C1C1;"
+      >
+      </textarea>
+      <!-- <input type="text" placeholder="填写留言（非必填）" data-name="words"
+        bindinput="getValue"
+        placeholder-style="color: #C1C1C1;" /> -->
+    </div>
+  </div>
+  <p class="warning">
+    ＊因音源版权问题，可能会出现点播歌曲无法播放问题。
+  </p>
+  <div class="post-btn" bindtouchstart="submit">提交</div>
+</view>

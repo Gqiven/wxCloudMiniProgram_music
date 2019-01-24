@@ -1,0 +1,17 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/detail/detail",
+    "pages/formPage/formPage",
+    "pages/subscribePage/subscribePage",
+    "pages/msg/msg",
+    "pages/gallery/gallery"
+  ],
+  "window": {
+    "backgroundColor": "#786fa6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "Everyday - 音乐小盒子",
+    "navigationBarTextStyle": "black"
+  }
+}

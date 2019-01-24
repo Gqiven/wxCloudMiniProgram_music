@@ -1,0 +1,47 @@
+<!-- detail.html -->
+<view class='container'>
+  <div wx:if="{{type === 'audio'}}" class="song-box">
+    <image src="{{poster}}" mode="widthFix" bindload="showPoster" />
+    <div wx-if="{{showPoster==true}}" class="poster-box-wrap">
+      <div class="poster-box">
+        <!-- <view animation="{{animationData}}"> -->
+          <image src="{{poster}}" mode="widthFix" />
+        <!-- </view> -->
+        <span wx:if="{{playing==false}}" class="iconfont icon-bofang" bindtouchstart="playmusic"></span>
+        <span wx:elif="{{playing==true}}" class="iconfont icon-zanting" bindtouchstart="pausemusic"></span>
+      </div>
+    </div>
+    <div class="cover"></div>
+  </div>
+
+  <video
+    wx:if="{{type === 'video'}}"
+    src="{{src}}"
+    controls
+  ></video>
+
+  <ul wx-if="{{showPoster==true || type === 'video'}}">
+    <li>
+      <span class="s-title">曲目名称：</span>
+      <p bindtap="copy" data-value="{{name}}">{{name}} <span class="iconfont icon-fuzhi"></span></p>
+    </li>
+    <li>
+      <span class="s-title">作者：</span>
+      <p bindtap="copy" data-value="{{author}}">{{author}} <span class="iconfont icon-fuzhi"></span></p>
+    </li>
+    <li>
+      <span class="s-title">所属专辑：</span>{{album}}
+    </li>
+    <li>
+      <span class="s-title">简介：</span>{{desc}}
+    </li>
+  </ul>
+
+  <view wx-if="{{showPoster==true || type === 'video'}}" style="width: 100%;display:block;">
+    <!-- <p class="text-title">写点啥</p> -->
+    <div class="text-box">
+      <textarea name="" id="" rows="5" placeholder="想说啥.." bindinput="getText"></textarea>
+      <span class="post-btn" bindtouchstart="postMyWords">发送</span>
+    </div>
+  </view>
+</view>
